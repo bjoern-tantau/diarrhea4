@@ -1,0 +1,199 @@
+[gd_scene load_steps=22 format=3 uid="uid://br5j5x1lfxxq3"]
+
+[ext_resource type="PackedScene" uid="uid://cp05e8u1lbnn7" path="res://player.tscn" id="1_0ppnh"]
+[ext_resource type="Script" path="res://game.gd" id="1_n7v7t"]
+[ext_resource type="Texture2D" uid="uid://qrlr32b4elcw" path="res://sprites/clouds/cloud1.png" id="1_q3y1g"]
+[ext_resource type="Texture2D" uid="uid://sdywjm3f1uu0" path="res://sprites/clouds/cloud2.png" id="2_vkn42"]
+[ext_resource type="Texture2D" uid="uid://cp15glfqfls80" path="res://sprites/clouds/cloud3.png" id="3_fpigm"]
+[ext_resource type="Script" path="res://Clouds.gd" id="3_x5ice"]
+[ext_resource type="Texture2D" uid="uid://e80vh6g8ybu" path="res://sprites/clouds/cloud4.png" id="5_6k2mf"]
+[ext_resource type="Texture2D" uid="uid://o2fg6m7od2yy" path="res://sprites/clouds/cloud5.png" id="6_7hvpj"]
+[ext_resource type="Texture2D" uid="uid://c27oy5egotb5k" path="res://sprites/clouds/cloud6.png" id="7_1uvrh"]
+[ext_resource type="Texture2D" uid="uid://b1wvt63ccmi0s" path="res://sprites/clouds/cloud7.png" id="8_ns6ui"]
+[ext_resource type="Texture2D" uid="uid://g0u8myv1t7ww" path="res://sprites/clouds/cloud8.png" id="9_03kth"]
+[ext_resource type="Script" path="res://Floor.gd" id="10_21mu6"]
+[ext_resource type="FontFile" uid="uid://ba76c4jua62hd" path="res://Fonts/Kenney Future.ttf" id="12_qbqus"]
+[ext_resource type="Texture2D" uid="uid://s5rd6n41shri" path="res://sprites/tiles/grassMid.png" id="12_t70ex"]
+[ext_resource type="Script" path="res://Menu.gd" id="13_0sdfj"]
+[ext_resource type="Texture2D" uid="uid://djt4epfg8sv0k" path="res://sprites/tiles/grassCenter.png" id="13_mrwva"]
+[ext_resource type="FontFile" uid="uid://dsq6vxqay6036" path="res://Fonts/Beurk-ajg5.ttf" id="14_2jwp3"]
+[ext_resource type="Texture2D" uid="uid://bxrc1kpaapspt" path="res://sprites/ui/yellow_checkmark.png" id="14_dvh4x"]
+[ext_resource type="AudioStream" uid="uid://ce3y8lf4espfi" path="res://sounds/fart-162565.mp3" id="15_tda7d"]
+[ext_resource type="Texture2D" uid="uid://boa7stlxirt8n" path="res://sprites/ui/yellow_cross.png" id="15_ysyji"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_121fi"]
+size = Vector2(64, 64)
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_n7v7t")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Clouds" type="ParallaxLayer" parent="ParallaxBackground"]
+script = ExtResource("3_x5ice")
+
+[node name="Cloud1" type="Sprite2D" parent="ParallaxBackground/Clouds"]
+position = Vector2(134, 120)
+texture = ExtResource("1_q3y1g")
+
+[node name="Cloud2" type="Sprite2D" parent="ParallaxBackground/Clouds"]
+position = Vector2(134, 120)
+texture = ExtResource("2_vkn42")
+
+[node name="Cloud3" type="Sprite2D" parent="ParallaxBackground/Clouds"]
+position = Vector2(134, 120)
+texture = ExtResource("3_fpigm")
+
+[node name="Cloud4" type="Sprite2D" parent="ParallaxBackground/Clouds"]
+position = Vector2(134, 120)
+texture = ExtResource("5_6k2mf")
+
+[node name="Cloud5" type="Sprite2D" parent="ParallaxBackground/Clouds"]
+position = Vector2(134, 120)
+texture = ExtResource("6_7hvpj")
+
+[node name="Cloud6" type="Sprite2D" parent="ParallaxBackground/Clouds"]
+position = Vector2(134, 120)
+texture = ExtResource("7_1uvrh")
+
+[node name="Cloud7" type="Sprite2D" parent="ParallaxBackground/Clouds"]
+position = Vector2(134, 120)
+texture = ExtResource("8_ns6ui")
+
+[node name="Cloud8" type="Sprite2D" parent="ParallaxBackground/Clouds"]
+position = Vector2(134, 120)
+texture = ExtResource("9_03kth")
+
+[node name="Player" parent="." instance=ExtResource("1_0ppnh")]
+position = Vector2(204, 537)
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Height" type="Label" parent="HUD"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -104.0
+offset_right = 104.0
+offset_bottom = 111.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.470588, 0.333333, 0.141176, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("12_qbqus")
+theme_override_font_sizes/font_size = 64
+text = "0 m"
+horizontal_alignment = 1
+
+[node name="Highscore" type="Label" parent="HUD"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -208.0
+offset_bottom = 111.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0.470588, 0.333333, 0.141176, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("12_qbqus")
+theme_override_font_sizes/font_size = 64
+text = "0 m"
+horizontal_alignment = 2
+
+[node name="Fuel" type="Label" parent="HUD"]
+offset_right = 388.0
+offset_bottom = 111.0
+theme_override_colors/font_color = Color(0.470588, 0.333333, 0.141176, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("12_qbqus")
+theme_override_font_sizes/font_size = 64
+text = "1000 l"
+
+[node name="Menu" type="ColorRect" parent="HUD"]
+process_mode = 3
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 0, 0, 0.501961)
+script = ExtResource("13_0sdfj")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/Menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -532.0
+offset_top = -118.0
+offset_right = 532.0
+offset_bottom = 118.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="HUD/Menu/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.470588, 0.333333, 0.141176, 1)
+theme_override_fonts/font = ExtResource("14_2jwp3")
+theme_override_font_sizes/font_size = 196
+text = "Diarrhea IV"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Restart" type="Button" parent="HUD/Menu/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("12_qbqus")
+theme_override_font_sizes/font_size = 96
+text = "Start New Game"
+
+[node name="Music" type="CheckButton" parent="HUD/Menu/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("12_qbqus")
+theme_override_font_sizes/font_size = 96
+theme_override_icons/checked = ExtResource("14_dvh4x")
+theme_override_icons/unchecked = ExtResource("15_ysyji")
+button_pressed = true
+text = "Music"
+
+[node name="Sound" type="CheckButton" parent="HUD/Menu/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("12_qbqus")
+theme_override_font_sizes/font_size = 96
+theme_override_icons/checked = ExtResource("14_dvh4x")
+theme_override_icons/unchecked = ExtResource("15_ysyji")
+button_pressed = true
+text = "Sound Effects"
+
+[node name="Quit" type="Button" parent="HUD/Menu/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("12_qbqus")
+theme_override_font_sizes/font_size = 96
+text = "Quit"
+
+[node name="Floor" type="StaticBody2D" parent="."]
+script = ExtResource("10_21mu6")
+
+[node name="Ground" type="Sprite2D" parent="Floor"]
+position = Vector2(0, 640)
+texture = ExtResource("12_t70ex")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(0, 640)
+shape = SubResource("RectangleShape2D_121fi")
+
+[node name="Underground" type="Sprite2D" parent="Floor"]
+position = Vector2(0, 704)
+texture = ExtResource("13_mrwva")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("15_tda7d")
+volume_db = -9.37
+autoplay = true
+bus = &"Music"
+
+[connection signal="restarting" from="HUD/Menu" to="." method="_on_menu_restarting"]
+[connection signal="pressed" from="HUD/Menu/VBoxContainer/Restart" to="HUD/Menu" method="_on_restart_pressed"]
+[connection signal="toggled" from="HUD/Menu/VBoxContainer/Music" to="." method="_on_music_toggled"]
+[connection signal="toggled" from="HUD/Menu/VBoxContainer/Sound" to="." method="_on_sound_toggled"]
+[connection signal="pressed" from="HUD/Menu/VBoxContainer/Quit" to="HUD/Menu" method="_on_quit_pressed"]
